@@ -11,6 +11,9 @@
   - call npm install babel-loader --save-dev
   - webpack -w
 
+  - atom:
+    - syntax hightlighter, etc - http://orktes.github.io/atom-react/
+
 ## Approach
   React is mainly the front-end - not played with FLUX yet.
   No bias towards a persistence layer - I'm using jQuery!
