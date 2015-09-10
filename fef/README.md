@@ -50,6 +50,9 @@ Add what you like, here's some pointers.
 ## Complexity
   Again, nothing concrete (we don't have the investment time) - just your *hunches*.
 
+## Gotchas
+  Stuff you've found out whilst researching that peeps may need to keep in mind
+
 ## Funkiness
   Is there something it offers above the others that may go in it's favour? e.g. replaying actions?
 

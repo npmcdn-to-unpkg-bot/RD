@@ -46,6 +46,9 @@
 ## Complexity
   Again, nothing concrete (we don't have the investment time) - just your *hunches*.
 
+## Gotchas
+  - *ref* you'll see this in some .jsx views - it this _seems_ to be a kind of reference between the virtual DOM (which is what "render") constructs and the actual DOM - see https://facebook.github.io/react/docs/more-about-refs.html
+
 ## Funkiness
   Is there something it offers above the others that may go in it's favour? e.g. replaying actions?
 
