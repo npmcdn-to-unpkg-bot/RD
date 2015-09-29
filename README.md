@@ -1,6 +1,8 @@
 # RD
 Area for documenting research, e.g. investigation into new front-end frameworks.
 
+# Editors
+
 ## atom
 
 Some useful packages for atom.io:
@@ -16,3 +18,11 @@ If you hit issues with installing atom package:
   - note the package folder (something like C:\Users\yourName\\.atom\packages)
   - open a command window and nav to that folder
   - then use **apm install package-name**
+
+## Sublime
+  Disregard, it's $70 a pop!
+
+## WebStorm
+    £78 for commercial license, £39 for "individuals"
+
+## Microsoft code
