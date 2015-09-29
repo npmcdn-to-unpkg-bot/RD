@@ -11,7 +11,7 @@ Some useful packages for atom.io:
   * markdown-scroll-sync - does as it says on the thing
   * react - hightlighter
   * atom-bootstrap3 - bootstrap css intellisense and snippets
-
+ 
 If you hit issues with installing atom package:
 
   - nav to the package install screen
