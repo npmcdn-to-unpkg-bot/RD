@@ -60,7 +60,7 @@ Speaking of which, here's my demo :-)
 	<img src='./demo-screenshot.png' width='205px' />
 </a>
 
-# The good, the bad and the Chris :-)
+# The good, the bad and the ....
 
 ## Pros
 - Results are native and therefore speedy
