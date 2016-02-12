@@ -153,6 +153,8 @@ There is a [Cordova VS Code plug-in](https://marketplace.visualstudio.com/items?
 
 Managed to attach the debugger to the app running on the device, quite straightforward exercise.
 
+Simply navigate to **chrome:inspect** in Google Chrome, scroll to the bottom of the page and you'll see **WebView in io.cordova.appname** - click the **inspect** link to start debugging.
+
 # Summary
 
 - Wasn't a walk in the park to get working, but once you _get_ what's happening it's not too bad.
