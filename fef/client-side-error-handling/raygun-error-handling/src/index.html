@@ -32,6 +32,9 @@
   <!-- base url -->
   <base href="<%= webpackConfig.metadata.baseUrl %>">
   
+  <!-- * * * --->
+  <!-- Raygun integration - CDN library -->
+  <!-- * * * -->
   <script type="text/javascript">
     !function(a,b,c,d,e,f,g,h){a.RaygunObject=e,a[e]=a[e]||function(){
     (a[e].o=a[e].o||[]).push(arguments)},f=b.createElement(c),g=b.getElementsByTagName(c)[0],
@@ -64,10 +67,14 @@
   <script src="http://<%= webpackConfig.metadata.host %>:<%= webpackConfig.metadata.port %>/webpack-dev-server.js"></script>
   <% } %>
   
+  <!-- * * * --->
+  <!-- Raygun integration -->
+  <!-- * * * -->
   <script type="text/javascript">
   
     rg4js('apiKey', 'e1wEKk//8vTtHCFZxijZJA==');
     rg4js('enableCrashReporting', true);
+    // Set user for error logging to appear against
     rg4js('setUser', {
         identifier: 'users_email_address_or_unique_id@domain.com',
         isAnonymous: false,
