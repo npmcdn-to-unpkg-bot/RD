@@ -42,18 +42,21 @@
 * NPM package available
 * Octopus, Rake, Grunt deployment instructions
 
-Relevant languages supported:
+Relevant tech supported:
 * .NET
 * Android
 * iOS
 * JavaScript
 * Node.js
+* AngularJS
+* Others
 
 Available plugins:
 * GitHub
 * PivotalTracker
 * Slack
 * Visual Studio Team Services
+* Others
 
 Info:
 * Total/new/crash-free users
