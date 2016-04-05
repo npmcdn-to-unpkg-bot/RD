@@ -30,10 +30,14 @@ export abstract class ReduxStore {
 		ReduxStore.initialized = true;
 	}
 
-	getState(): any {
+	/**
+	 * protected to enforce caller to convert to typed classes
+	 * (also means immutable lists can be converted into normal arrays)
+	 */
+	protected getState(): any {
 		return this.store.getState();
 	}
-
+	
 	dispatch(action: IActionBase): any {
 		return this.store.dispatch(action);
 	}

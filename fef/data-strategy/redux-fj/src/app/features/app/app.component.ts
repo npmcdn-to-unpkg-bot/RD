@@ -26,17 +26,17 @@ import { Modal } from "../../shared/components/modal";
 		<h2 class="title">My Redux Flux Shop</h2>
 	
 		<basket 
-			[items]="_myStore.getState().basket" 
+			[items]="_myStore.basket" 
 			[includeVat]="_myStore.getState().uiState.showVAT"
 			(includeTax)="vatChange($event)">
 		</basket>
 		<div class="clear"></div>
 		
 		<ul>
-			<li *ngFor="#prod of _myStore.getState().products">
+			<li *ngFor="#prod of _myStore.products">
 				<product-line 
 					[product]="prod"
-					[includeTax]="_myStore.getState().showVAT"
+					[includeTax]="_myStore.getState().uiState.showVAT"
 					(onBuy)="onBuy($event)"
 					(onEdit)="onEdit($event)"
 					(onDelete)="onDelete($event)">
