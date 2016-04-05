@@ -1,4 +1,4 @@
-import {IActionBase} from "../stores/action-base.ts";
+import {IActionBase} from "./action-base.ts";
 
 export interface IProductAction extends IActionBase {
 	sku?: string;

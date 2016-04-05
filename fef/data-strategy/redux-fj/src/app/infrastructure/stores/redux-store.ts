@@ -13,7 +13,7 @@
  *
  */
 
-import {IActionBase} from "./action-base";
+import {IActionBase} from "../actions/action-base";
 
 export abstract class ReduxStore {
 
