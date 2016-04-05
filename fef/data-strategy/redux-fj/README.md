@@ -1,4 +1,4 @@
-# Redux and Angular2 ... holding hands and having a love in.
+# Redux, Angular2 and Immutable.js ... holding hands and having a love in.
 
 Attempt at building the store using Flux concepts implemented using the Redux and Immutable libraries.
 
