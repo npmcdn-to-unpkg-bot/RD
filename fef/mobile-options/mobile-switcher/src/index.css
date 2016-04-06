@@ -1,0 +1,43 @@
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+body { 
+	font-family: "Corbel", "Calibri", "Arial";
+}
+.left-panel {
+	width: 50%;
+	float: left;
+	padding: 0 5% 0 5%;
+	border-right: 1px solid #ddd;
+}
+.right-panel {
+	width: 50%;
+	float: right;
+	padding: 0 5% 0 5%;
+}			
+.example-image {
+	border: solid 1px #ddd;
+	margin-left: 1em;
+	padding: 1em;
+	box-shadow: 0px 15px 25px -3px rgba(0,0,0,0.24);
+}
+
+.hac { text-align: center; }
+.vac { vertical-align: middle; }
+.vat { vertical-align: top }
+.no-bullets { list-style: none; }
+.fl { float: left }
+.fr { float: right }
+.clear { clear: both }
+.ib { display: inline-block; }
+
+/* Order of ng validation status classes _is_ relevant => you want invalid to win */
+.ng-invalid { 
+	background-color: #FFE7E7;
+	border-right: 5px solid #a94442; /* red */
+}
+.ng-valid { 
+	background-color: #E3FFE3; /* green   */ 
+	border-right: 5px solid #42A948; /* green */ 
+}
