@@ -1,6 +1,6 @@
 export class ViewBrokerService {
   
-  public static TEMPLATE_URL(path: string): string {  
+  public static TEMPLATE_URL(path: string, ext: string): string {  
 		let suffix: string = path;
 		let ua: string = window.navigator.userAgent;
 		
@@ -14,9 +14,20 @@ export class ViewBrokerService {
 			suffix = "desktop";
 		}
 		
-		path += `-${suffix}.html`;
+		path += `-${suffix}${ext}`;
 		
 		return path;
   }
+	
+	public static TEMPLATE_URLS(paths: Array<string>, ext: string): Array<string> {
+		let templatedUrls: Array<string> = null;
+		
+		templatedUrls = paths.map((p) => {
+			return ViewBrokerService.TEMPLATE_URL(p, ext); 
+		});
+		
+		return templatedUrls;
+	}
+	
 }
 

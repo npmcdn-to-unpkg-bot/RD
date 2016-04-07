@@ -11,6 +11,7 @@ import { DetectorComponent } from "../decorators/detector-component";
 	`], 
 	directives: [],
 	templateUrl: "./app/flippy/flippy-template",
+	styleUrls: ["./app/flippy/flippy-template"]
 })
 
 export class Flippy {
