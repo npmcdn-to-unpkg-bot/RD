@@ -36,7 +36,6 @@
   ],
   "homepage": "https://github.com/ChrisMurphy/angular2-seed",
   "devDependencies": {
-    "@ngrx/store": "^1.3.3",
     "angular2": "^2.0.0-beta.13",
     "chalk": "^1.1.1",
     "del": "^2.0.2",

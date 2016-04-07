@@ -1,0 +1,20 @@
+##NODE
+**/node_modules/**
+npm-debug.log
+
+##JSPM
+**/jspm_packages/**
+
+##Typings
+src/typings/**
+
+##Development Code
+dev/**
+
+##Distribution Code
+dist/**
+
+##Covergae Report
+coverage/**
+
+src/**/*.js
