@@ -17,4 +17,4 @@ dist/**
 ##Covergae Report
 coverage/**
 
-src/**/*.js
+src/app/**/*.js
