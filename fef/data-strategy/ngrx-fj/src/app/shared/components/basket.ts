@@ -9,42 +9,39 @@ import { Product } from "../../infrastructure/models/product";
 	directives: [FORM_DIRECTIVES],
 	changeDetection: STRATEGY,
 	styles: [`
-		.basket { 
+		:host {
+			float: right;
+			width: 30%;
 			background-color: #FFFFD9;
 			border: solid 1px yellow;
-			float: right;
+			text-align: right;
 			margin-bottom: 1em;
-			display: block;
-		}	
-		.container {
-		}		
-		.clear {
+		}
+		:host::after {
 			clear: both;
 		}
 		.caption {
 			margin-bottom: 0.5em;
 			font-weight: bold;
 		}
+		.totals {
+			text-align: right;
+		}
 	`],
 	template: 
 	`
-		<div class="container basket">
-			<fieldset>
-				<caption><div class="caption">Basket</div></caption>
-				
-				<p class="totals">
-					&pound;{{getTotal()}} 
-					for 
-					{{getItemCount()}} items
-				</p>
-				
-				<label class=".include-vat">
-					Include VAT?
-					<input type="checkbox" (change)="onVATchange($event)" />
-				</label>
-			</fieldset>
+		<div class="caption">
+			<label>
+				VAT in basket?
+				<input type="checkbox" (change)="onVATchange($event)" />
+			</label>
 		</div>
-		<div class="clear"></div>
+		
+		<p class="totals">
+			&pound;{{getTotal()}} 
+			for 
+			{{getItemCount()}} items
+		</p>
 	`
 })
 

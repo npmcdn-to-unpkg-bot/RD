@@ -14,7 +14,7 @@ import { ProductDetail } from "../../shared/components/product-detail";
 import { Modal } from "../../shared/components/modal";
 
 @Component({
-	selector: 'app',
+	selector: 'redux-app',
 	changeDetection: STRATEGY,
 	directives: [ProductLine, Basket, Copyright, ProductDetail, Modal],
 	styles: [`
