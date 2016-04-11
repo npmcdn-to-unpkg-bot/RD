@@ -28,13 +28,13 @@ System.config({
         }
       }
     },
-		'@ngrx/store': {
-      main: 'dist/index.js',
-      defaultExtension: 'js'
+    "@ngrx/store": {
+      "main": "dist/index.js",
+      "defaultExtension": "js"
     },
-    '@ngrx/devtools': {
-      main: 'dist/index.js',
-      defaultExtension: 'js'
+    "@ngrx/devtools": {
+      "main": "dist/index.js",
+      "defaultExtension": "js"
     }
   },
 
@@ -51,15 +51,15 @@ System.config({
   },
 
   map: {
+    "@ngrx": "https://npmcdn.com/@ngrx",
     "angular2": "npm:angular2@2.0.0-beta.13",
     "es6-promise": "npm:es6-promise@3.1.2",
     "es6-shim": "github:es-shims/es6-shim@0.35.0",
     "immutable": "npm:immutable@3.7.6",
-		'@ngrx': 'https://npmcdn.com/@ngrx',
-    "redux": "npm:redux@3.3.1",
+    "ngrx": "npm:@ngrx/store@1.3.3",
+    "redux": "npm:redux@3.4.0",
     "reflect-metadata": "npm:reflect-metadata@0.1.2",
     "rxjs": "npm:rxjs@5.0.0-beta.4",
-		"ngrx": "npm:@ngrx/store@1.3.3",
     "ts": "github:frankwallis/plugin-typescript@3.0.3",
     "typescript": "npm:typescript@1.8.0",
     "zone.js": "npm:zone.js@0.6.8",
@@ -112,7 +112,7 @@ System.config({
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
-    "npm:lodash@4.7.0": {
+    "npm:lodash@4.9.0": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
@@ -138,9 +138,9 @@ System.config({
       "stream-browserify": "npm:stream-browserify@1.0.0",
       "string_decoder": "npm:string_decoder@0.10.31"
     },
-    "npm:redux@3.3.1": {
-      "lodash": "npm:lodash@4.7.0",
-      "lodash-es": "npm:lodash-es@4.7.0",
+    "npm:redux@3.4.0": {
+      "lodash": "npm:lodash@4.9.0",
+      "lodash-es": "npm:lodash-es@4.9.0",
       "loose-envify": "npm:loose-envify@1.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
