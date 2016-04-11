@@ -1,4 +1,4 @@
-export const dataItems = [
+export const questionData = [
     {itemCode: 'DAT0101', itemCategory: 'Residency', questionText: 'Do you live in the UK?', itemType: 'Binary', questionAnswers: [
                 {answerCode: 'DAT_0101_ANS_01', answerText: 'Yes', answerFrequencies: null},
                 {answerCode: 'DAT_0101_ANS_02', answerText: 'No', answerFrequencies: null}

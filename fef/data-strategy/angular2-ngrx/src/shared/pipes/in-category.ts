@@ -1,23 +1,16 @@
 import { Pipe } from 'angular2/core';
-import { dataItems } from '../models/data-items';
 
 @Pipe({
     name: "inCategory"
 })
 
+// Returns the items in the supplied array ('value' param) that have the same property 'itemCategory'
+// as the supplied string ('itemCategory' param). 
+// In this case, divides the array of Questions passed to the 'DebtRemedySummary' component by itemCategory
+// to be passed to the numerous DebtRemedyQuestionPage components. 
 export class InCategory {
     transform(value, itemCategory) {
         
-        let diCodes: Array<string> = new Array<string>();
-        
-        for(let di of dataItems)
-        {
-            if(di.itemCategory == itemCategory)
-            {
-                diCodes.push(di.itemCode);
-            }
-        }
-        
-        return value.filter((item) => diCodes.indexOf(item.itemCode) > -1);
+        return value.filter((item) => item.itemCategory == itemCategory);
     }
 }

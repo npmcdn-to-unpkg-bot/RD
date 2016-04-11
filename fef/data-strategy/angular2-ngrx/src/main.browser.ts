@@ -19,7 +19,7 @@ import {App} from './app/app';
 
 import { provideStore } from '@ngrx/store';
 import { instrumentStore } from '@ngrx/devtools';
-import { clientAnswer, clientAnswers } from './shared/store/debt-remedy-store';
+import { clientAnswers, questions, questionPages } from './shared/reducers/debt-remedy-store-reducers';
 import { ClientAnswerService } from './shared/services/client-answer-service';
 
 /*
@@ -39,8 +39,7 @@ export function main(initialState = {}) {
     ...PIPES,
     ...APP_PROVIDERS,
     ClientAnswerService,
-    // DebtRemedyStore,
-    provideStore({clientAnswers}),
+    provideStore({clientAnswers, questions, questionPages}),
     instrumentStore()
   ])
   .catch(err => console.error(err));

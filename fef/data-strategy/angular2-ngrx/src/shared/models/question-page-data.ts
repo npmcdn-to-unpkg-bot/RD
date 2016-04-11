@@ -1,4 +1,4 @@
-export const questionPages = [
+export const questionPageData = [
         {pageRef: 'PAG001', pageTitle: 'Welcome', pageBlurb: 'Before we start, we need to ask you some quick questions to make sure our Debt Remedy tool can help you', categories: [
             {categoryTitle: 'Residency', itemCategory: 'Residency'},
             {categoryTitle: 'Your Debts', itemCategory: 'YourDebts'},
