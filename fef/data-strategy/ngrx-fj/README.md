@@ -13,7 +13,7 @@ Inspired using [build a better angular2 application with Redux and ngrx](http://
 * Is this going to be around in the future?
 * How well is it going to maintained?
 	- Last commit was nearly a month ago
-	- Still on beta 7 ([currently has issues with rxjs beta 5](https://github.com/ngrx/store/issues/85)
+	- Still on beta 7 ([currently waiting on issues with rxjs beta 5](https://github.com/ngrx/store/issues/85)
 	- Not part of core Angular2
 
 # Redux

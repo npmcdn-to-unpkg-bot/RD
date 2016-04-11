@@ -4,10 +4,8 @@ import { STRATEGY } from "../../infrastructure/models/config";
 // NGRX
 import { Store } from "@ngrx/store";
 import { MyRxStore } from "../../infrastructure/stores/my-rx-store";
+import { Devtools, instrumentStore } from "@ngrx/devtools";
 import { Observable } from 'rxjs/Observable';
-
-// REDUX
-// import { MyReduxStore } from "../../infrastructure/stores/my-redux-store";
 
 import { addProduct, updateCategoryChain, removeProduct } from "../../infrastructure/actions/product-actions";
 import { addPurchase, removePurchase } from "../../infrastructure/actions/purchase-actions";
@@ -25,18 +23,18 @@ import { Modal } from "../../shared/components/modal";
 @Component({
 	selector: 'ngrx-app',
 	changeDetection: STRATEGY,
-	directives: [ProductLine, Basket, Copyright, ProductDetail, Modal],
+	directives: [ProductLine, Basket, Copyright, ProductDetail, Modal, Devtools],
 	styles: [`
 		.title {
 			float: left;
 		}
 	`],	
 	template: `
-		<h2 class="title">My Ngrx Flux Shop</h2>
+		<h2 class="title">My Ngrx Flux Shop (showVAT = {{showMeVat(_uiState.showVAT)}}) </h2>
 	
 		<basket 
 			[items]="_basket | async" 
-			[includeVat]="_uiState.showVAT"
+			[includeVat]="_uiState.showVAT | async"
 			(includeTax)="vatChange($event)">
 		</basket>
 		<div class="clear"></div>
@@ -45,7 +43,7 @@ import { Modal } from "../../shared/components/modal";
 			<li *ngFor="#prod of _products | async">
 				<product-line 
 					[product]="prod"
-					[includeTax]="_uiState.showVAT"
+					[includeTax]="_uiState.showVAT | async"
 					(onBuy)="onBuy($event)"
 					(onEdit)="onEdit($event)"
 					(onDelete)="onDelete($event)">
@@ -57,6 +55,8 @@ import { Modal } from "../../shared/components/modal";
 		<button (click)="onAddNew()">Add Product</button>
 		
 		<copyright>StepChange Debt Charity</copyright>
+		<hr />
+		<ngrx-devtools style="opacity: 0.75"></ngrx-devtools>
 	`
 })
 export class NgrxApp {
@@ -70,9 +70,17 @@ export class NgrxApp {
 		this._myStore = myStore;
 		this._products = this._myStore.select("products");
 		this._basket = this._myStore.select("basket");
-		this._uiState = this._myStore.select("uiState");		
-		// OK, this is a _bit_ icky
-		
+		this._uiState = this._myStore.select("uiState");
+
+		this._uiState.subscribe((x) => {
+			console.log(x.showVAT);
+		});
+	}
+	
+	showMeVat(check: boolean): string {
+		if (check == null) return "null";
+		if (check == undefined) return "undefined";
+		return check.toString();
 	}
 
 	vatChange(isChecked: boolean) {

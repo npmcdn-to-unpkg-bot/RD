@@ -15,6 +15,7 @@ import { MyReduxStore } from "./infrastructure/stores/my-redux-store";
 // Redux dependencies
 import { NgrxApp } from "./features/app/ngrx.app.component";
 import { provideStore } from "@ngrx/store";
+import { Devtools, instrumentStore } from "@ngrx/devtools";
 
 // Container for both Redux and Ngrx versions
 import { App } from "./features/app/app.component";
@@ -24,5 +25,6 @@ bootstrap(App, [
 	HTTP_PROVIDERS,
 	provide(LocationStrategy, { useClass: HashLocationStrategy }),
 	provideStore({uiState, products, basket}),
+	instrumentStore(),
 	MyReduxStore
 ]);

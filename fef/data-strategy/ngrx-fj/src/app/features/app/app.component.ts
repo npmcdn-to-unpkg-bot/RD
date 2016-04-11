@@ -10,10 +10,13 @@ import { NgrxApp } from "./ngrx.app.component";
 	directives: [ReduxApp, NgrxApp],
 	template:`
 		<div>
-			<redux-app class="left-panel"></redux-app>
-			<ngrx-app class="right-panel"></ngrx-app>
+			<ngrx-app class="left-panel"></ngrx-app>
+			<div class="clear"></div>
 		</div>
-		<div class="clear"></div>
+		<div>
+			<redux-app class="left-panel"></redux-app>
+			<div class="clear"></div>
+		</div>
 `,
 })
 
