@@ -7,11 +7,18 @@ Attempt at building the store using Flux concepts implemented using ngrx
 Inspired using [build a better angular2 application with Redux and ngrx](http://onehungrymind.com/build-better-angular-2-application-redux-ngrx/)
 
 
-## Improvements
+## Talking Points
 
-There's a few further things we could look at:
+# NgRx
+* Is this going to be around in the future?
+* How well is it going to maintained?
+	- Last commit was nearly a month ago
+	- Still on beta 7 ([currently has issues with rxjs beta 5](https://github.com/ngrx/store/issues/85)
+	- Not part of core Angular2
 
-*  
+# Redux
+* No ag2 dependency (irrelvant what version ag2 is at)
+* Fairly certain it will be maintained
 
 # Seed Origins
 

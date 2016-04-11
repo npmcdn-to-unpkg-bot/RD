@@ -1,8 +1,9 @@
 import {List} from "immutable";
 import {Purchase} from "../models/purchase";
 import {IPurchaseAction} from "../actions/purchase-actions";
+import {Mocks} from "../stores/mocks";
 
-export function basket(state: List<Purchase> = List<Purchase>(), action: IPurchaseAction): any {
+export const basket = (state: List<Purchase> = Mocks.initialBasket(), action: IPurchaseAction) => {
 	
 	function indexOf(sku: string): number {
 		return state.findIndex((p: Purchase) => p.sku === action.sku);

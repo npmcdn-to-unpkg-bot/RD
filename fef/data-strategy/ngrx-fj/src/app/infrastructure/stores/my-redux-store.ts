@@ -28,7 +28,7 @@ const store = createStore(storeReducers, {
 		
 
 @Injectable()
-export class MyStore extends ReduxStore {
+export class MyReduxStore extends ReduxStore {
 	constructor() {
 		super(store); 
 	}

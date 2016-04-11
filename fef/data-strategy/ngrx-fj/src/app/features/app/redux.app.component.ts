@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from 'angular2/core';
 import { STRATEGY } from "../../infrastructure/models/config";
 
-import { MyStore } from "../../infrastructure/stores/my-store";
+import { MyReduxStore } from "../../infrastructure/stores/my-redux-store";
 import { addProduct, updateCategoryChain, removeProduct } from "../../infrastructure/actions/product-actions";
 import { addPurchase, removePurchase } from "../../infrastructure/actions/purchase-actions";
 import { toggleVat } from "../../infrastructure/actions/ui-state-actions";
@@ -50,11 +50,11 @@ import { Modal } from "../../shared/components/modal";
 		<copyright>StepChange Debt Charity</copyright>
 	`
 })
-export class App {
+export class ReduxApp {
 	private title: string;
-	_myStore: MyStore = null;
+	_myStore: MyReduxStore = null;
 	
-	constructor(myStore: MyStore) {
+	constructor(myStore: MyReduxStore) {
 		this._myStore = myStore;
 	}
 
