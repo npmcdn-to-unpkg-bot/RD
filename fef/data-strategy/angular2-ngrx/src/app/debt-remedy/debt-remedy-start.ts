@@ -2,7 +2,15 @@ import { Component } from 'angular2/core';
 
 import { DebtRemedyStartController} from '../../shared/debt-remedy/controllers/debt-remedy-start-controller';
 
-import { ClientAnswerService } from '../../shared/services/client-answer-service';
+// *****
+// ngrx
+// *****
+import { ClientAnswerServiceNgrx } from '../../shared/services/client-answer-service-ngrx';
+
+// *****
+// redux
+// *****
+// import { ClientAnswerServiceRedux } from '../../shared/services/client-answer-service-redux';
 
 import { DebtRemedyLogo } from '../../shared/debt-remedy/debt-remedy-logo';
 import { DebtRemedySummary } from './debt-remedy-summary';
@@ -24,16 +32,29 @@ import { DebtRemedySummary } from './debt-remedy-summary';
   template: `
     <div class="answersPanel">
         <debt-remedy-logo style="margin: auto"></debt-remedy-logo>
+        <!-- ***** ngrx ***** -->
+        <!--- utilise async pipe when outputs are Observables -->
         <debt-remedy-summary [questions]="_questions | async" [questionPages]="_questionPages | async" (onAnswerToContainer)="onAnswerToStore($event)"></debt-remedy-summary>
+        <!-- ***** redux ***** -->
+        <!-- <debt-remedy-summary [questions]="_questions" [questionPages]="_questionPages" (onAnswerToContainer)="onAnswerToStore($event)"></debt-remedy-summary> -->
     </div>
   `,
 })
 export class DebtRemedyStart extends DebtRemedyStartController {
   
-  
-  constructor(clientAnswerService: ClientAnswerService) {
+  // *****
+  // ngrx
+  // *****
+  constructor(clientAnswerService: ClientAnswerServiceNgrx) {
        super(clientAnswerService);
    }
+  
+  // *****
+  // redux
+  // *****
+  // constructor(clientAnswerService: ClientAnswerServiceRedux) {
+  //      super(clientAnswerService);
+  //  }
         
    
 }

@@ -1,53 +1,11 @@
-[![taylor swift](https://img.shields.io/badge/secured%20by-taylor%20swift-brightgreen.svg)](https://twitter.com/SwiftOnSecurity)
-[![volkswagen status](https://auchenberg.github.io/volkswagen/volkswargen_ci.svg?v=1)](https://github.com/auchenberg/volkswagen) [![GitHub version](https://badge.fury.io/gh/angularclass%2Fangular2-webpack-starter.svg)](https://badge.fury.io/gh/angularclass%2Fangular2-webpack-starter) [![Dependency Status](https://david-dm.org/angularclass/angular2-webpack-starter.svg)](https://david-dm.org/angularclass/angular2-webpack-starter)
-[![Issue Stats](http://issuestats.com/github/angularclass/angular2-webpack-starter/badge/pr?style=flat)](http://issuestats.com/github/angularclass/angular2-webpack-starter)
-[![Issue Stats](http://issuestats.com/github/angularclass/angular2-webpack-starter/badge/issue?style=flat)](http://issuestats.com/github/angularclass/angular2-webpack-starter) [![Stack Share](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/angularclass/angular-2-webpack-starter)
+# Debt Remedy example app with @ngrx/Store and Redux
 
-<p align="center">
-  <a href="https://angularclass.com" target="_blank">
-    <img src="https://cloud.githubusercontent.com/assets/1016365/9863762/a84fed4a-5af7-11e5-9dde-d5da01e797e7.png" alt="Webpack and Angular 2" width="500" height="320"/>
-  </a>
-</p>
+A test app using the [angular2-webpack-starter by @AngularClass](https://github.com/AngularClass/angular2-webpack-starter) using either the [@ngrx/store](https://github.com/ngrx/store) library and the [Redux](https://github.com/reactjs/redux) library for state management (switchable)
 
-# Angular2 Webpack Starter [![Join Slack](https://img.shields.io/badge/slack-join-brightgreen.svg)](https://angularclass.com/slack-join) [![Join the chat at https://gitter.im/angularclass/angular2-webpack-starter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/angularclass/angular2-webpack-starter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-
-> An Angular 2 starter kit featuring [Angular 2](https://angular.io) ([Router](https://angular.io/docs/js/latest/api/router/), [Forms](https://angular.io/docs/js/latest/api/forms/),
-[Http](https://angular.io/docs/js/latest/api/http/),
-[Services](https://gist.github.com/gdi2290/634101fec1671ee12b3e#_follow_@AngularClass_on_twitter),
-[Tests](https://angular.io/docs/js/latest/api/test/), [E2E](https://angular.github.io/protractor/#/faq#what-s-the-difference-between-karma-and-protractor-when-do-i-use-which-)), [Karma](https://karma-runner.github.io/), [Protractor](https://angular.github.io/protractor/), [Jasmine](https://github.com/jasmine/jasmine), [Istanbul](https://github.com/gotwarlost/istanbul), [TypeScript](http://www.typescriptlang.org/), [Typings](https://github.com/typings/typings), [TsLint](http://palantir.github.io/tslint/), [Ng2Lint](https://github.com/mgechev/ng2lint), [Hot Module Replacement](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html), and [Webpack](http://webpack.github.io/) by [AngularClass](https://angularclass.com).
-
-> If you're looking for Angular 1.x please use [NG6-starter](https://github.com/angularclass/NG6-starter)  
-> If you're looking to learn about Webpack and ES6 Build Tools check out [ES6-build-tools](https://github.com/AngularClass/ES6-build-tools)  
-> If you're looking to learn TypeScript see [TypeStrong/learn-typescript](https://github.com/TypeStrong/learn-typescript)  
-> If you're looking for Webpack 2 version then see the experimental version [angular2-webpack2-starter](https://github.com/gdi2290/angular2-webpack2-starter) that will be merged
-
-This seed repo serves as an Angular 2 starter for anyone looking to get up and running with Angular 2 and TypeScript fast. Using a [Webpack](http://webpack.github.io/) for building our files and assisting with boilerplate. We're also using Protractor for our end-to-end story and Karma for our unit tests.
-* Best practices in file and application organization for Angular 2.
-* Ready to go build system using Webpack for working with TypeScript.
-* Angular 2 examples that are ready to go when experimenting with Angular 2.
-* A great Angular 2 seed repo for anyone who wants to start their project.
-* Testing Angular 2 code with Jasmine and Karma.
-* Coverage with Istanbul and Karma
-* End-to-end Angular 2 code using Protractor.
-* Type manager with Typings
-* Hot Module Replacement with Webpack
-
-### Quick start
-**Make sure you have node version >= 4.0**
-> Clone/Download the repo then edit `app.ts` inside [`/src/app/app.ts`](/src/app/app.ts)
+### Installation
+> Clone/Download the repo
 
 ```bash
-# clone our repo
-# --depth 1 removes all but one .git commit history
-git clone --depth 1 https://github.com/angularclass/angular2-webpack-starter.git
-
-# change directory to our repo
-cd angular2-webpack-starter
-
-# add required global libraries
-npm install typings webpack-dev-server rimraf webpack -g
-
 # install the repo with npm
 npm install
 
@@ -56,250 +14,148 @@ npm start
 ```
 go to [http://0.0.0.0:3000](http://0.0.0.0:3000) or [http://localhost:3000](http://localhost:3000) in your browser
 
-# Table of Contents
-* [File Structure](#file-structure)
-* [Getting Started](#getting-started)
-    * [Dependencies](#dependencies)
-    * [Installing](#installing)
-    * [Running the app](#running-the-app)
-* [Contributing](#contributing)
-* [TypeScript](#typescript)
-* [Typings](#typings)
-* [Frequently asked questions](#frequently-asked-questions)
-* [Support, Questions, or Feedback](#support-questions-or-feedback)
-* [License](#license)
+### @ngrx/store, Redux differences
 
+The project contains code for using @ngrx/store or Redux for state management.
 
-## File Structure
-We use the component approach in our starter. This is the new standard for developing Angular apps and a great way to ensure maintainable code by encapsulation of our behavior logic. A component is basically a self contained app usually in a single file or a folder with each concern as a file: style, template, specs, e2e, and component class. Here's how it looks:
-```
-angular2-webpack-starter/
- ├──config/                    * our configuration
- |   ├──helpers.js             * helper functions for our configuration files
- |   ├──spec-bundle.js         * ignore this magic that sets up our angular 2 testing environment
- |   ├──karma.conf.js          * karma config for our unit tests
- |   ├──protractor.conf.js     * protractor config for our end-to-end tests
- │   ├──webpack.dev.js         * our development webpack config
- │   ├──webpack.prod.js        * our production webpack config
- │   └──webpack.test.js        * our testing webpack config
- │
- ├──src/                       * our source files that will be compiled to javascript
- |   ├──main.browser.ts        * our entry file for our browser environment
- │   │
- |   ├──index.html             * Index.html: where we generate our index page
- │   │
- |   ├──polyfills.ts           * our polyfills file
- │   │
- |   ├──vendor.ts              * our vendor file
- │   │
- │   ├──app/                   * WebApp: folder
- │   │   ├──app.spec.ts        * a simple test of components in app.ts
- │   │   ├──app.e2e.ts         * a simple end-to-end test for /
- │   │   └──app.ts             * App.ts: a simple version of our App component components
- │   │
- │   └──assets/                * static assets are served here
- │       ├──icon/              * our list of icons from www.favicon-generator.org
- │       ├──service-worker.js  * ignore this. Web App service worker that's not complete yet
- │       ├──robots.txt         * for search engines to crawl your website
- │       └──human.txt          * for humans to know who the developers are
- │
- │
- ├──tslint.json                * typescript lint config
- ├──typedoc.json               * typescript documentation generator
- ├──tsconfig.json              * config that webpack uses for typescript
- ├──typings.json               * our typings manager
- └──package.json               * what npm uses to manage it's dependencies
-```
+Where appropriate I have documented the differences in approach, and indicated what lines to comment out / remove comments on in the following files:
 
-# Getting Started
-## Dependencies
-What you need to run this app:
-* `node` and `npm` (`brew install node`)
-* Ensure you're running the latest versions Node `v4.1.x`+ and NPM `2.14.x`+
+src/main.browser.ts
+src/app/app.ts
+src/app/debt-remedy/debt-remedy-start.ts
+src/debt-remedy-start-controller.ts
 
-Once you have those, you should install these globals with `npm install --global`:
-* `webpack` (`npm install --global webpack`)
-* `webpack-dev-server` (`npm install --global webpack-dev-server`)
-* `karma` (`npm install --global karma-cli`)
-* `protractor` (`npm install --global protractor`)
-* `typings` (`npm install --global typings`)
-* `typescript` (`npm install --global typescript`)
+### Findings
 
-## Installing
-* `fork` this repo
-* `clone` your fork
-* `npm install` to install all dependencies
-* `typings install` to install necessary typings
-* `npm run server` to start the dev server in another tab
+> Streamlining of store setup code and change detection
 
-## Running the app
-After you have installed all dependencies you can now run the app. Run `npm run server` to start a local server using `webpack-dev-server` which will watch, build (in-memory), and reload for you. The port will be displayed to you as `http://0.0.0.0:3000` (or if you prefer IPv6, if you're using `express` server, then it's `http://[::1]:3000/`).
-
-### server
 ```bash
-# development
-npm run server
-# production
-npm run build:prod
-npm run server:prod
-```
+# ngrx's Store is a generic, which allows you to easily define an interface against it to give the store some structure.
 
-## Other commands
+// ----------
+// @ngrx/Store:
+// ----------
+// Define an interface to give store a 'shape'
+//
+export interface DRStore {
+    clientAnswers: ClientAnswer[];
+}
+// Injecting store into a service
+//
+constructor(private store: Store<DRStore>) {
+    [...]
+}
+// Logging store state:
+//
+// Object {clientAnswers: Array[29]}
+// > clientAnswers: Array[29]
+//  > 0: ClientAnswer
+//  > 1: ClientAnswer
+//  > 2: ClientAnswer
+//  > [...]
+// ----------
+// Redux:
+// ----------
+// Injecting store into a service
+//
+constructor(private store: Store) {
+    [...]
+}
+// Logging store state:
+//
+// [ClientAnswer, ClientAnswer, ClientAnswer, ClientAnswer [...]
 
-### build files
-```bash
-# development
-npm run build:dev
-# production
-npm run build:prod
-```
+# @ngrx/store's Store.select method returns an observable, so we don't have to manually subscribe to store state changes
+# This also allows us to take advantage of angular's built-in async pipe.
 
-### watch and build files
-```bash
-npm run watch
-```
+// ----------
+// @ngrx/store
+// ----------
+// Typical service communicating with store
+//
+export class ClientAnswerService {
+    
+    clientAnswers: Observable<Array<ClientAnswers>>;
+    
+    constructor(private store: Store<DRStore>) {
+        
+        this.myData = store.select('clientAnswers');
+    }
+}
+// ----------
+// Redux
+// ----------
+// Typical service communicating with store
+//
+export class ClientAnswerService {
+    
+    clientAnswers: Observable<Array<ClientAnswers>>;
+    
+    constructor(private store: Store) {
+        
+        // Initialize local array
+        this.clientAnswers = store.DRStore.getState();
+        
+        // Then subscribe to store changes
+        let unsubscribe = store.DRStore.subscribe(() => {
+           this.clientAnswers = store.DRStore.getState(); 
+        });
+    }
+}
 
-### run tests
-```bash
-npm run test
-```
+#  @ngrx/store's 'provideStore' method can be bootstrapped to automatically set up the store. Can bootstrap the Redux store but it needs to be defined elsewhere.
 
-### watch and run our tests
-```bash
-npm run watch:test
-```
-
-### run end-to-end tests
-```bash
-# make sure you have your server running in another terminal
-npm run e2e
-```
-
-### run webdriver (for end-to-end)
-```bash
-npm run webdriver:update
-npm run webdriver:start
-```
-
-### run Protractor's elementExplorer (for end-to-end)
-```bash
-npm run webdriver:start
-# in another terminal
-npm run e2e:live
-```
-
-
-# Contributing
-You can include more examples as components but they must introduce a new concept such as `Home` component (separate folders), and Todo (services). I'll accept pretty much everything so feel free to open a Pull-Request
-
-# TypeScript
-> To take full advantage of TypeScript with autocomplete you would have to install it globally and use an editor with the correct TypeScript plugins.
-
-## Use latest TypeScript compiler
-TypeScript 1.7.x includes everything you need. Make sure to upgrade, even if you installed TypeScript previously.
-
-```
-npm install --global typescript
-```
-
-## Use a TypeScript-aware editor
-We have good experience using these editors:
-
-* [Visual Studio Code](https://code.visualstudio.com/)
-* [Webstorm 10](https://www.jetbrains.com/webstorm/download/)
-* [Atom](https://atom.io/) with [TypeScript plugin](https://atom.io/packages/atom-typescript)
-* [Sublime Text](http://www.sublimetext.com/3) with [Typescript-Sublime-Plugin](https://github.com/Microsoft/Typescript-Sublime-plugin#installation)
-
-# Typings
-> When you include a module that doesn't include Type Definitions inside of the module you need to include external Type Definitions with Typings
-
-## Use latest Typings module
-```
-npm install --global typings
-```
-
-## Custom Type Definitions
-When including 3rd party modules you also need to include the type definition for the module
-if they don't provide one within the module. You can try to install it with typings
-
-```
-typings install node --save
-```
-
-If you can't find the type definition in the registry we can make an ambient definition in
-this file for now. For example
-
-```typescript
-declare module "my-module" {
-  export function doesSomething(value: string): string;
+// ----------
+// @ngrx/store
+// ----------
+// main component
+import { provideStore } from '@ngrx/store';
+export function main() [...]
+return bootstrap(App, [
+    ...ENV_PROVIDERS,
+    ...PROVIDERS,
+    ...DIRECTIVES,
+    ...PIPES,
+    ...APP_PROVIDERS,
+    provideStore({ [reducer] })
+])
+// ----------
+// Redux
+// ----------
+// main component
+import { Store } from [...];
+export function main() [...]
+return bootstrap(App, [
+    ...ENV_PROVIDERS,
+    ...PROVIDERS,
+    ...DIRECTIVES,
+    ...PIPES,
+    ...APP_PROVIDERS,
+    Store
+])
+// Store definition
+@Injectable()
+export class Store {
+    
+    Store: Redux.Store;
+    
+    constructor() {
+        this.Store = createStore(clientAnswers);
+    }
 }
 ```
 
+> Since you can wire Angular2 components to detect store changes via Observables, you can effectively disable Angular2's built-in change detection. This could have big performance boosts in larger applications.
 
-If you're prototyping and you will fix the types later you can also declare it as type any
+> Since @ngrx/store is the newer library, there are more add-ons that use the 'plain' Redux library - middleware, routing tools, store enhancers, utilities and developer tools. N.B. using Redux dev tools / middleware with @ngrx/store may not be difficult by converting @ngrx/store to a Redux store.
 
-```typescript
-declare var assert: any;
-```
+> the @ngrx/store's devtools are less mature; the redux-devtools are available as a Chrome extension.
 
-If you're importing a module that uses Node.js modules which are CommonJS you need to import as
+> Discussion in @ngrx/store's Github repository [here](https://github.com/ngrx/store/issues/16#) 
 
-```typescript
-import * as _ from 'lodash';
-```
-
-You can include your type definitions in this file until you create one for the typings registry
-see [typings/registry](https://github.com/typings/registry)
-
-# Frequently asked questions
-* What's the current browser support for Angular 2 Beta?
-  * Please view the updated list of [browser support for Angular 2](https://github.com/angularclass/awesome-angular2#current-browser-support-for-angular-2)
-* Why is my service, aka provider, is not injecting parameter correctly?
-  * Please use `@Injectable()` for your service for typescript to correctly attach the metadata (this is a TypeScript problem)
-* How do I run protractor with node 0.12.x?
-  * please check out this repo to use the old version of protractor [#146](https://github.com/AngularClass/angular2-webpack-starter/pull/146/files)
-* Where do I write my tests?
-  * You can write your tests next to your component files. See [`/src/app/home/home.spec.ts`](/src/app/home/home.spec.ts)
-* How do I start the app when I get `EACCES` and `EADDRINUSE` errors?
-  * The `EADDRINUSE` error means the port `3000` is currently being used and `EACCES` is lack of permission for webpack to build files to `./dist/`
-* How to use `sass` for css?
- * `loaders: ['raw-loader','sass-loader']` and `@Component({ styles: [ require('./filename.scss') ] })` see issue [#136](https://github.com/AngularClass/angular2-webpack-starter/issues/136)
-* How do I test a Service?
- * See issue [#130](https://github.com/AngularClass/angular2-webpack-starter/issues/130#issuecomment-158872648)
-* How do I add `vscode-chrome-debug` support?
- * The VS Code chrome debug extension support can be done via `launch.json` see issue [#144](https://github.com/AngularClass/angular2-webpack-starter/issues/144#issuecomment-164063790)
-* How do I make the repo work in a virtual machine?
- * You need to use `0.0.0.0` so revert these changes [#205](https://github.com/AngularClass/angular2-webpack-starter/pull/205/files)
-* What are the naming conventions for Angular 2?
- * please see issue [#185](https://github.com/AngularClass/angular2-webpack-starter/issues/185) and PR [196](https://github.com/AngularClass/angular2-webpack-starter/pull/196)
-* How do I include bootstrap or jQuery?
- * please see issue [#215](https://github.com/AngularClass/angular2-webpack-starter/issues/215) and [#214](https://github.com/AngularClass/angular2-webpack-starter/issues/214#event-511768416)
-* I'm getting an error about not finding my module that I installed?
- * please see [How to include or create custom type definitions](https://github.com/AngularClass/angular2-webpack-starter/wiki/How-to-include-or-create-custom-type-definitions) and [custom-typings.d.ts](https://github.com/AngularClass/angular2-webpack-starter/blob/master/src/custom-typings.d.ts)
-* How do I async load a component?
- * see wiki [How-do-I-async-load-a-component-with-AsyncRoute](https://github.com/AngularClass/angular2-webpack-starter/wiki/How-do-I-async-load-a-component-with-AsyncRoute)
-* Error: Cannot find module 'tapable'
- * Remove `node_modules/` and run `npm cache clean` then `npm install`
-* What about Webpack 2?
- * If you're looking for Webpack 2 version then see the [experimental version](https://github.com/gdi2290/angular2-webpack2-starter) that will be merged soon.
-
-# Support, Questions, or Feedback
-> Contact us anytime for anything about this repo or Angular 2
-
-* [Chat: AngularClass.slack](http://angularclass.com/member-join/)
-* [Twitter: @AngularClass](https://twitter.com/AngularClass)
-* [Gitter: AngularClass/angular2-webpack-starter](https://gitter.im/angularclass/angular2-webpack-starter)
-
-___
-
-enjoy — **AngularClass**
-
-<br><br>
-
-[![AngularClass](https://cloud.githubusercontent.com/assets/1016365/9863770/cb0620fc-5af7-11e5-89df-d4b0b2cdfc43.png  "Angular Class")](https://angularclass.com)
-##[AngularClass](https://angularclass.com)
-> Learn AngularJS, Angular 2, and Modern Web Development from the best.
-> Looking for corporate Angular training, want to host us, or Angular consulting? patrick@angularclass.com
-
-# License
- [MIT](/LICENSE)
+### TODO
+> Investigate packaged state management tools in angular2-webpack-starter
+> Investigate advantages to using angular2's built-in async pipe in an app of this scale, or on a more complex app
+> Investigate how use of Thunk or store enhancers could improve the app
+> Investigate how the pairing of Redux and immutable.js can improve performance.
+ 
