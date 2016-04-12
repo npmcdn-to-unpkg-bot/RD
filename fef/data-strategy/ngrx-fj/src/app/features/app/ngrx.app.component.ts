@@ -3,7 +3,7 @@ import { STRATEGY } from "../../infrastructure/models/config";
 
 // NGRX
 import { Store } from "@ngrx/store";
-import { MyRxStore } from "../../infrastructure/stores/my-rx-store";
+import { MyNgStore } from "../../infrastructure/stores/my-rx-store";
 import { Devtools, instrumentStore } from "@ngrx/devtools";
 import { Observable } from 'rxjs/Observable';
 
@@ -30,11 +30,11 @@ import { Modal } from "../../shared/components/modal";
 		}
 	`],	
 	template: `
-		<h2 class="title">My Ngrx Flux Shop (showVAT = {{showMeVat(_uiState.showVAT)}}) </h2>
+		<h2 class="title">My Ngrx Flux Shop) </h2>
 	
 		<basket 
 			[items]="_basket | async" 
-			[includeVat]="_uiState.showVAT | async"
+			[includeVat]="(_uiState|async).showVAT"
 			(includeTax)="vatChange($event)">
 		</basket>
 		<div class="clear"></div>
@@ -43,7 +43,7 @@ import { Modal } from "../../shared/components/modal";
 			<li *ngFor="#prod of _products | async">
 				<product-line 
 					[product]="prod"
-					[includeTax]="_uiState.showVAT | async"
+					[includeTax]="(_uiState|async).showVAT"
 					(onBuy)="onBuy($event)"
 					(onEdit)="onEdit($event)"
 					(onDelete)="onDelete($event)">
@@ -61,40 +61,34 @@ import { Modal } from "../../shared/components/modal";
 })
 export class NgrxApp {
 	private title: string;
-	_myStore: Store<MyRxStore> = null;
+	_myNgStore: Store<MyNgStore> = null;
 	_products: Observable<Array<Product>> = null;
 	_basket: Observable<Array<Purchase>> = null;
 	_uiState: Observable<UiState> = null;
 	
-	constructor(myStore: Store<MyRxStore>) {
-		this._myStore = myStore;
-		this._products = this._myStore.select("products");
-		this._basket = this._myStore.select("basket");
-		this._uiState = this._myStore.select("uiState");
+	constructor(myStore: Store<MyNgStore>) {
+		this._myNgStore = myStore;
+		this._products = this._myNgStore.select("products");
+		this._basket = this._myNgStore.select("basket");
+		this._uiState = this._myNgStore.select("uiState");
 
 		this._uiState.subscribe((x) => {
 			console.log(x.showVAT);
 		});
 	}
 	
-	showMeVat(check: boolean): string {
-		if (check == null) return "null";
-		if (check == undefined) return "undefined";
-		return check.toString();
-	}
-
 	vatChange(isChecked: boolean) {
-		this._myStore.dispatch(toggleVat());
+		this._myNgStore.dispatch(toggleVat());
 	}
 	
 	onBuy(product: Product) {
-		this._myStore.dispatch(addPurchase(product.sku, 1, product.price));
+		this._myNgStore.dispatch(addPurchase(product.sku, 1, product.price));
 	}
 	
 	onAddNew() {
 		let p: Product = Product.MockProduct();
 		
-		this._myStore.dispatch(addProduct(
+		this._myNgStore.dispatch(addProduct(
 			p.sku, p.name, p.imageUrl, p.categoryChain, p.price
 		));
 		
@@ -112,11 +106,11 @@ export class NgrxApp {
 		}
 		rev = tmp.join(",");
 		
-		this._myStore.dispatch(updateCategoryChain(p.sku, rev));
+		this._myNgStore.dispatch(updateCategoryChain(p.sku, rev));
 	}
 	
 	onDelete(prod: Product): void {
-		this._myStore.dispatch(removeProduct(prod.sku));
+		this._myNgStore.dispatch(removeProduct(prod.sku));
 	}	
 
 }
