@@ -30,8 +30,13 @@ export class DecoratorUtils {
     
     if (metadata.templateUrl) {
       // correct view for platform target
-      metadata.templateUrl = ViewBrokerService.TEMPLATE_URL(metadata.templateUrl);
+      metadata.templateUrl = ViewBrokerService.TEMPLATE_URL(metadata.templateUrl, ".html");
     }
+		
+		if (metadata.styleUrls) {
+			// correct styles for platform target
+			metadata.styleUrls = ViewBrokerService.TEMPLATE_URLS(metadata.styleUrls, ".css");
+		}
     
 		// FJ: Removed this as this isn't for Native, it's for Web, so "styleUrls" are still relevant
     // if (metadata.styleUrls && CoreConfigService.IS_MOBILE_NATIVE()) {
