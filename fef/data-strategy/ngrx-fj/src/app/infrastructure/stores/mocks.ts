@@ -1,14 +1,15 @@
-import {List} from "immutable";
+// IMMUTABLE JS version
+// import {List} from "immutable";
 import {Product} from "../models/product";
 import {Purchase} from "../models/purchase";
 import {UiState} from "../models/ui-state";
 
 
 export class Mocks {
-	public static initialProducts(): List<Product> {
+	public static initialProducts(): Array<Product> {
 		// Let's just imagine this came from an API!
-		let cat: List<Product> = List<Product>();
-		cat = cat.push(
+		let cat: Array<Product> = Array<Product>();
+		cat.push(
 			Product.CreateProduct
 			(
 				"PROD-123", 
@@ -39,13 +40,23 @@ export class Mocks {
 	}
 
 	public static initialUiState(): UiState {
-		return new UiState({
-			showVAT: false
-		});
+		return new UiState();
 	}
-	
-	public static initialBasket(): List<Purchase> {
-		return List<Purchase>();
+
+	public static initialBasket(): Array<Purchase> {
+		return new Array<Purchase>();
 	}
+
+
+	// IMMUTABLE.JS version	
+	// public static initialUiState(): UiState {
+	// 	return new UiState({
+	// 		showVAT: false
+	// 	});
+	// }	
+	// 
+	// public static initialBasket(): List<Purchase> {
+	// 	return List<Purchase>();
+	// }
 	
 }	

@@ -1,7 +1,8 @@
+// IMMUTABLE JS version
+// import {List} from "immutable";
 import {Injectable} from "angular2/core";
 import {createStore} from "redux";
 import {combineReducers} from 'redux';
-import {List} from "immutable";
 
 import {ReduxStore} from "./redux-store";
 import {Mocks} from "./mocks";
@@ -38,8 +39,10 @@ export class MyReduxStore extends ReduxStore {
 	 * components have no dependency on Immutable.
 	*/
 	get products(): Array<Product> {
-		let prods: List<Product> = (<List<Product>> super.getState().products);
-		return prods.toArray();
+		// IMMUTABLE.JS version	
+		// let prods: List<Product> = (<List<Product>> super.getState().products);
+		// return prods.toArray();
+		return (<Array<Product>> super.getState().products);
 	}
 	
 	/**
@@ -47,8 +50,11 @@ export class MyReduxStore extends ReduxStore {
 	 * components have no dependency on Immutable.
 	*/
 	get basket(): Array<Purchase> {
-		let purses: List<Purchase> = (<List<Purchase>> super.getState().basket);
-		return purses.toArray();
+		return (<Array<Purchase>> super.getState().basket);
+		
+		// IMMUTABLE JS version
+		// let purses: List<Purchase> = (<List<Purchase>> super.getState().basket);
+		// return purses.toArray();
 	}
 
 	/**

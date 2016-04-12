@@ -1,4 +1,5 @@
-import {List} from "immutable";
+// IMMUTABLE JS version
+// import {List} from "immutable";
 import {Product} from "../models/product";
 import {Purchase} from "../models/purchase";
 import {UiState} from "../models/ui-state";
