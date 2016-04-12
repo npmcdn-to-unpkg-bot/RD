@@ -26,17 +26,17 @@ import { Modal } from "../../shared/components/modal";
 		<h2 class="title">My Redux Flux Shop</h2>
 	
 		<basket 
-			[items]="_myStore.basket" 
-			[includeVat]="_myStore.getState().uiState.showVAT"
+			[items]="_myReduxStore.basket" 
+			[includeVat]="_myReduxStore.getState().uiState.showVAT"
 			(includeTax)="vatChange($event)">
 		</basket>
 		<div class="clear"></div>
 		
 		<ul>
-			<li *ngFor="#prod of _myStore.products">
+			<li *ngFor="#prod of _myReduxStore.products">
 				<product-line 
 					[product]="prod"
-					[includeTax]="_myStore.getState().uiState.showVAT"
+					[includeTax]="_myReduxStore.getState().uiState.showVAT"
 					(onBuy)="onBuy($event)"
 					(onEdit)="onEdit($event)"
 					(onDelete)="onDelete($event)">
@@ -52,24 +52,24 @@ import { Modal } from "../../shared/components/modal";
 })
 export class ReduxApp {
 	private title: string;
-	_myStore: MyReduxStore = null;
+	_myReduxStore: MyReduxStore = null;
 	
 	constructor(myStore: MyReduxStore) {
-		this._myStore = myStore;
+		this._myReduxStore = myStore;
 	}
 
 	vatChange(isChecked: boolean) {
-		this._myStore.dispatch(toggleVat());
+		this._myReduxStore.dispatch(toggleVat());
 	}
 	
 	onBuy(product: Product) {
-		this._myStore.dispatch(addPurchase(product.sku, 1, product.price));
+		this._myReduxStore.dispatch(addPurchase(product.sku, 1, product.price));
 	}
 	
 	onAddNew() {
 		let p: Product = Product.MockProduct();
 		
-		this._myStore.dispatch(addProduct(
+		this._myReduxStore.dispatch(addProduct(
 			p.sku, p.name, p.imageUrl, p.categoryChain, p.price
 		));
 		
@@ -87,11 +87,11 @@ export class ReduxApp {
 		}
 		rev = tmp.join(",");
 		
-		this._myStore.dispatch(updateCategoryChain(p.sku, rev));
+		this._myReduxStore.dispatch(updateCategoryChain(p.sku, rev));
 	}
 	
 	onDelete(prod: Product): void {
-		this._myStore.dispatch(removeProduct(prod.sku));
+		this._myReduxStore.dispatch(removeProduct(prod.sku));
 	}	
 
 }

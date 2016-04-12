@@ -4,7 +4,7 @@ import {Purchase} from "../models/purchase";
 import {UiState} from "../models/ui-state";
 
 
-export interface MyRxStore {
+export interface MyNgStore {
 	products: Array<Product>;
 	basket: Array<Purchase>;
 	uiState: UiState;
