@@ -33,7 +33,7 @@ import { Product } from "../../infrastructure/models/product";
 		<div class="caption">
 			<label>
 				VAT in basket?
-				<input type="checkbox" (change)="onVATchange($event)" />
+				<input type="checkbox" [(ngModel)]="includeVat" (change)="onVATchange($event)" />
 			</label>
 		</div>
 		
