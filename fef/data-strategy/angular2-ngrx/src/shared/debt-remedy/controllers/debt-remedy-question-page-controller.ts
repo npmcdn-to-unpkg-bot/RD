@@ -10,6 +10,7 @@ export class DebtRemedyQuestionPageController {
         
     }
     
+    // Conduit for ClientAnswer change event from subcomponents; event is handled by parent component.
     onAnswerPassed(ca: ClientAnswer) {
       this.onAnswerToSummary.emit(ca);
     }

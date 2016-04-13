@@ -8,6 +8,9 @@ import {Home} from './home';
 
 // import {AppState} from './app.service';
 
+// *****
+// ngrx
+// *****
 import { Devtools, instrumentStore, devtoolsConfig } from '@ngrx/devtools'
 
 import { DebtRemedyStart } from './debt-remedy/debt-remedy-start';
@@ -19,6 +22,9 @@ import { DebtRemedyStart } from './debt-remedy/debt-remedy-start';
 @Component({
   selector: 'app',
   pipes: [ ],
+  // *****
+  // ngrx
+  // *****
   providers: [
      devtoolsConfig({
         position: 'bottom',
@@ -56,6 +62,8 @@ import { DebtRemedyStart } from './debt-remedy/debt-remedy-start';
     </header>
 
     <main>
+      <!-- ***** ngrx ***** -->
+      <!-- enable ngrx-specific implementation of devtools --> 
       <ngrx-devtools></ngrx-devtools>
       <router-outlet></router-outlet>
     </main>

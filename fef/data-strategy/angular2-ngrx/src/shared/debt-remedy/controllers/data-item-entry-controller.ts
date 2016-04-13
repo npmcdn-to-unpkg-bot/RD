@@ -1,12 +1,8 @@
-import { EventEmitter, OnInit } from 'angular2/core';
+import { EventEmitter } from 'angular2/core';
 
 import { ClientAnswer } from '../../models/client-answer';
-import { dataItems } from '../../models/data-items';
 
-export class DataItemEntryController implements OnInit {
-    
-    clientAnswer: any;
-    dataItem: any;
+export class DataItemEntryController {
     
     onAnswerToQuestionPage: EventEmitter<ClientAnswer> = new EventEmitter<ClientAnswer>();
     
@@ -14,20 +10,13 @@ export class DataItemEntryController implements OnInit {
          
 	}
     
+    // When an answer is changed event emitted to parent component -
+    // and so on, up the chain to the 'smart' component which communicates with the store
     onAnswerChanged(itemCode: string, answerCode: string) {
         let _clientAnswer = new ClientAnswer;
         _clientAnswer.itemCode = itemCode;
         _clientAnswer.answerCode = answerCode;
         _clientAnswer.answerFreq = null;
         this.onAnswerToQuestionPage.emit(_clientAnswer);    
-    }
-    
-    ngOnInit() {
-       let _itemCode = this.clientAnswer.itemCode;
-       for(let di of dataItems) {
-           if(di.itemCode == _itemCode) {
-               this.dataItem = di;
-           }
-       }
     }
 }

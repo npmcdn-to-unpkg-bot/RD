@@ -4,14 +4,15 @@ import { DebtRemedyQuestionPageController } from '../../shared/debt-remedy/contr
 
 import { DataItemEntry } from './data-item-entry';
 
+// Contains all data item questions for a given category
 @Component({
   selector: 'debt-remedy-question-page',
   directives: [DataItemEntry],
-  inputs: ['clientAnswers'],
+  inputs: ['questions'],
   outputs: ['onAnswerToSummary'],
   template: `
-    <div *ngFor="#clientAnswer of clientAnswers">
-        <data-item-entry [clientAnswer]="clientAnswer" (onAnswerToQuestionPage)="onAnswerPassed($event)"></data-item-entry>
+    <div *ngFor="#question of questions">
+        <data-item-entry [question]="question" (onAnswerToQuestionPage)="onAnswerPassed($event)"></data-item-entry>
     </div>
   `,
 })

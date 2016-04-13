@@ -17,10 +17,20 @@ import {ENV_PROVIDERS} from './platform/environment';
 import {AppState} from './app/app.service';
 import {App} from './app/app';
 
+import { clientAnswers, questions, questionPages } from './shared/reducers/debt-remedy-store-reducers';
+
+// *****
+// ngrx
+// *****
 import { provideStore } from '@ngrx/store';
 import { instrumentStore } from '@ngrx/devtools';
-import { clientAnswer, clientAnswers } from './shared/store/debt-remedy-store';
-import { ClientAnswerService } from './shared/services/client-answer-service';
+import { ClientAnswerServiceNgrx } from './shared/services/client-answer-service-ngrx';
+
+// *****
+// Redux
+// *****
+// import { Store } from './shared/store/debt-remedy-store-redux'
+// import { ClientAnswerServiceRedux } from './shared/services/client-answer-service-redux';
 
 /*
  * Bootstrap our Angular app with a top level component `App` and inject
@@ -38,9 +48,22 @@ export function main(initialState = {}) {
     ...DIRECTIVES,
     ...PIPES,
     ...APP_PROVIDERS,
-    ClientAnswerService,
-    // DebtRemedyStore,
-    provideStore({clientAnswers}),
+    
+    // *****
+    // Redux
+    // *****
+    // Since we want to inject the store into the ClientAnswerService (single point of contact with Store)
+    //  we need to define it elsewhere and then bootstrap it
+    // ClientAnswerServiceRedux,
+    // Store,
+    
+    // *****
+    // ngrx
+    // *****
+    // ngrx allows for bootstrapping the store using the provideStore([reducers]) method and then
+    //  injecting its own Store property where needed (here the ClientAnswerService). 
+    ClientAnswerServiceNgrx,
+    provideStore({clientAnswers, questions, questionPages}),
     instrumentStore()
   ])
   .catch(err => console.error(err));
