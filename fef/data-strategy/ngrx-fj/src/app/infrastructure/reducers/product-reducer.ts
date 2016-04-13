@@ -4,6 +4,7 @@ import {Product} from "../models/product";
 import {IProductAction} from "../actions/product-actions";
 import {Mocks} from "../stores/mocks";
 import * as _ from "../helpers/underscore";
+import * as ditto from "../helpers/ditto";
 
 
 export const products = (state: Array<Product> = Mocks.initialProducts(), action: IProductAction): Array<Product> => {
@@ -19,16 +20,17 @@ export const products = (state: Array<Product> = Mocks.initialProducts(), action
 			return res;
 			
 		case "REMOVE_PRODUCT":
-			return _.DeleteItem(state, (p: Product) => p.sku !== action.sku);
+			return ditto.deleteItems(state, (p: Product) => p.sku !== action.sku);
 
 		case "UPDATE_CATEGORY_CHAIN":
 			let pos: number = indexOf(action.sku);
 			let currProduct: Product = state[pos];
 
-			let clone: Product = Product.Clone(currProduct);
-			clone.categoryChain = action.categoryChain.toString();
-
-			return _.UpdateList(state, pos, clone);
+			return ditto.updateList(state, 
+				(p:Product) => p.sku === action.sku, {
+					categoryChain: action.categoryChain
+				}
+			);
 		
 		default:
 			return state;

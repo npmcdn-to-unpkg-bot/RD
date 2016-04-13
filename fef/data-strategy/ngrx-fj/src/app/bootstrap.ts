@@ -12,7 +12,7 @@ import { uiState } from "./infrastructure/reducers/ui-state-reducer";
 import { ReduxApp } from './features/app/redux.app.component';
 import { MyReduxStore } from "./infrastructure/stores/my-redux-store";
 
-// Redux dependencies
+// NgRx dependencies
 import { NgrxApp } from "./features/app/ngrx.app.component";
 import { provideStore } from "@ngrx/store";
 import { Devtools, instrumentStore } from "@ngrx/devtools";

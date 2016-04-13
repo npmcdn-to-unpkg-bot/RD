@@ -11,6 +11,7 @@ export interface IProductAction extends IActionBase {
 export function addProduct(sku: string, name: string, imageUrl: string, categoryChain: string, price: number) {
 	return {
 		type: "ADD_PRODUCT",
+		sku,
 		name,
 		imageUrl,
 		categoryChain,

@@ -20,6 +20,8 @@ import { Copyright } from "../../shared/components/copyright";
 import { ProductDetail } from "../../shared/components/product-detail";
 import { Modal } from "../../shared/components/modal";
 
+import { runTests } from "../../infrastructure/helpers/ditto-tests";
+
 @Component({
 	selector: 'ngrx-app',
 	changeDetection: STRATEGY,
@@ -75,6 +77,8 @@ export class NgrxApp {
 		this._uiState.subscribe((x) => {
 			console.log(x.showVAT);
 		});
+		
+		//runTests();
 	}
 	
 	vatChange(isChecked: boolean) {

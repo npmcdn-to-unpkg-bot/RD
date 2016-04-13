@@ -15,10 +15,12 @@ Inspired using [build a better angular2 application with Redux and ngrx](http://
 	- Last commit was nearly a month ago
 	- Still on beta 7 ([currently waiting on issues with rxjs beta 5](https://github.com/ngrx/store/issues/85)
 	- Not part of core Angular2
+* NgRx on RxJS v5 (re-write)
 
 # Redux
 * No ag2 dependency (irrelvant what version ag2 is at)
 * Fairly certain it will be maintained
+* Redux is based on RxJs v4
 
 # Seed Origins
 

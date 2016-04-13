@@ -1,57 +1,6 @@
 // TODO:
 // 1. Change "UpdateList" to just "Update" - the array parameter should make it overloadable with the single "Update" version  
 
-export function IndexOf<T>(items: Array<T>, 
-	predicate: (value: T) => boolean 
-) {
-	return items.findIndex(predicate);
-	
-}
-
-export function UpdateList<T>(items: Array<T>, index: number, newItem: T): Array<T> {
-	let newList: Array<T> = new Array<T>();
-	let front: Array<T> = new Array<T>();
-	let back: Array<T> = new Array<T>();
-
-	front.push( ...items.slice(index, index+1) );
-	back.push(...items.slice(index, index+1));
-	newList.push(...front, newItem, ...back);
-	
-	return newList;	
-}
-
-export function AppendItem<T>(items: Array<T>, itemToAdd: T): Array<T> {
-	let newList: Array<T> = new Array<T>();
-	newList.push(...items, itemToAdd);
-	return newList;
-}
-
-export function InsertItem<T>(items: Array<T>, itemToInsert: T): Array<T> {
-	let newList: Array<T> = new Array<T>();
-	newList.push(itemToInsert, ...items);
-	return newList;
-}
-
-
-
-export function Update<T>(current: T, updates: any): T {
-	let newItem: T = null;
-	
-	newItem = Object.assign({}, current, updates);
-		
-	return newItem;
-}
-
-export function DeleteItem<T>(current: Array<T>, 
-	predicate: (value: T, index: number, array: T[]) => boolean
-) {
-	let deletedItems: Array<T> = new Array<T>();
-	let removedItems: Array<T> = current.filter(predicate);
-	
-	deletedItems.push(...removedItems);
-	
-	return deletedItems;
-}
 
 /**
  * Returns true if "o" is null or undefined

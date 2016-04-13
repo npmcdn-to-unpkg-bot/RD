@@ -4,6 +4,7 @@ import {Purchase} from "../models/purchase";
 import {IPurchaseAction} from "../actions/purchase-actions";
 import {Mocks} from "../stores/mocks";
 import * as _ from "../helpers/underscore";
+import * as ditto from "../helpers/ditto";
 
 export const basket = (state: Array<Purchase> = Mocks.initialBasket(), action: IPurchaseAction): Array<Purchase> => {
 	
@@ -11,12 +12,12 @@ export const basket = (state: Array<Purchase> = Mocks.initialBasket(), action: I
 		case "ADD_PURCHASE":
 			// return state.push( Purchase.CreatePurchase(action.sku, action.quantity, action.price) );
 			let mockPurchase: Purchase = Purchase.CreatePurchase(action.sku, action.quantity, action.price);
-			return _.AppendItem(state, mockPurchase);
+			return ditto.append(state, mockPurchase);
 		
 		case "REMOVE_PURCHASE":
 			// TODO: Decrement version
 			// return List<Purchase>( state.filter((p: Purchase) => p.sku !== action.sku) );
-			return _.DeleteItem(state, (p:Purchase) => p.sku !== action.sku);
+			return ditto.deleteItems(state, (p:Purchase) => p.sku !== action.sku);
 		
 		default:
 			return state;
