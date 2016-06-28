@@ -1,0 +1,8 @@
+node_modules
+dist
+typings
+npm-debug.log
+.idea/
+documentation
+coverage
+automation

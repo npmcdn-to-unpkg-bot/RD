@@ -6,15 +6,17 @@ describe('AppComponent', function () {
 		browser.get('/');
 	});
 
-	// it('should have headerzzz', function() {
-
-	// 	let header = element(by.css('h1'));
-	// 	expect(header).toContain('My First Angular 2 App');
-	// });
-
 	it('should have a title', () => {
     let subject = browser.getTitle();
-    let result = 'Boobs';
+    let result = 'StepChange Angular 2 Application Seed';
+
     expect(subject).toEqual(result);
   });
+
+	it('can load an image from the assets folder', () => {
+		let src = element(by.tagName('img')).getAttribute('src');
+		
+		expect(src).toContain('logo.jpg');
+	});
+	
 })
