@@ -51,7 +51,7 @@ System.config({
   },
 
   map: {
-    "@ngrx": "https://npmcdn.com/@ngrx",
+    "@ngrx": "https://unpkg.com/@ngrx",
     "angular2": "npm:angular2@2.0.0-beta.13",
     "es6-promise": "npm:es6-promise@3.1.2",
     "es6-shim": "github:es-shims/es6-shim@0.35.0",
